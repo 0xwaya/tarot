@@ -1,8 +1,9 @@
 # Repo hard-scope: only track project files for QueenCity Soundboard
 *
 
-# allow git internals and ignore file itself
+# allow git internals and key root docs
 !.gitignore
+!README.md
 
 # track only project directory
 !queencity-soundboard/
