@@ -38,6 +38,7 @@ export default function SupplierHero({ supplier }) {
           className={`h-32 rounded-xl border border-border flex items-center justify-center text-muted overflow-hidden p-2 ${
             supplier.heroImage ? 'bg-surface' : 'bg-gradient-to-br from-panel to-bg'
           }`}
+          style={supplier.heroBackground ? { backgroundColor: supplier.heroBackground } : undefined}
         >
           {supplier.heroImage ? (
             <img src={supplier.heroImage} alt={`${supplier.name} hero`} className="h-full w-full object-contain" />
