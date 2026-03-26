@@ -34,7 +34,11 @@ export default function SupplierHero({ supplier }) {
             )}
           </div>
         </div>
-        <div className="h-32 rounded-xl bg-gradient-to-br from-panel to-bg border border-border flex items-center justify-center text-muted overflow-hidden p-2">
+        <div
+          className={`h-32 rounded-xl border border-border flex items-center justify-center text-muted overflow-hidden p-2 ${
+            supplier.heroImage ? 'bg-surface' : 'bg-gradient-to-br from-panel to-bg'
+          }`}
+        >
           {supplier.heroImage ? (
             <img src={supplier.heroImage} alt={`${supplier.name} hero`} className="h-full w-full object-contain" />
           ) : (
