@@ -1,0 +1,7 @@
+export default function LogoMark() {
+  return (
+    <div className="h-12 w-12 rounded-lg bg-panel border border-border flex items-center justify-center overflow-hidden">
+      <img src="/brand/amazonlogo.jpg" alt="Amazon Granite LLC" className="h-full w-full object-contain" />
+    </div>
+  );
+}
