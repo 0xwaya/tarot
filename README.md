@@ -55,6 +55,33 @@ The current architecture is intentionally **gateway-native first**.
 - Usage visibility should come from the native `sessions.usage` and `sessions.usage.timeseries` RPCs first, with the local ledger monitor as the second line of defense.
 - Python OpenAI calls must go through `lc_adapter.echo_invoke()` so budget guards, token accounting, retries, and hard stops are enforced centrally.
 
+### OpenClaw UI Threading Surface
+
+- The browser Control UI is already a native OpenClaw client, not a separate chat stack.
+- It connects with gateway client id `openclaw-control-ui` and client mode `webchat`.
+- The shared internal message channel for the browser chat surface is `webchat`.
+- The existing chat UI already includes the main primitives needed for thread-bound session work:
+  - session selection
+  - new session creation
+  - session-aware history loading
+  - assistant identity refresh
+  - session-scoped send and abort flows
+- Thread-related capability structures already exist in the packaged runtime:
+  - channel capabilities can declare `threads` and chat type `thread`
+  - threading context/tool context types already exist for message and tool handoff
+  - message action adapters already support action-level integration points such as thread-oriented actions
+  - session-binding services already exist for binding conversations to ACP or subagent sessions
+- The current local runtime patch extends that built-in session-binding surface to `webchat` by registering a `webchat/default` adapter with `current` and `child` placements.
+  - The current local runtime patch also adds explicit `channels.webchat.threadBindings` config/schema support and ACP harness-id canonicalization for backend runtime calls.
+- Current behavior after the patch:
+  - ACP session-mode spawn is no longer blocked by a missing webchat binding adapter
+  - webchat conversation-to-session bindings can now be resolved through the same binding service used by Discord
+  - the gateway service has been restarted successfully after the patch
+- Remaining gaps are now above the core binding layer:
+  - Control UI actions for creating or focusing thread-bound sessions
+  - end-to-end ACP spawn validation on the webchat command path
+  - lifecycle validation, persistence tests, and rollout hardening
+
 Operational docs maintained in local workspace state:
 - `api-ratelimit.md` — budget policy, incident history, daily checkpoints
 - `memory/memory.md` — persistent cross-session facts and architecture decisions
