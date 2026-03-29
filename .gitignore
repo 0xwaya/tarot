@@ -18,25 +18,7 @@
 !openclaw/
 !openclaw/LANGGRAPH_CASE_STUDY.md
 
-# track only project directory
-!queencity-soundboard/
-!queencity-soundboard/**
-
-# track selected Amazon Granite product-surface files
-!amazon-granite/
-!amazon-granite/frontend/
-!amazon-granite/frontend/components/
-!amazon-granite/frontend/components/SupplierHero.jsx
-!amazon-granite/frontend/data/
-!amazon-granite/frontend/data/featured-stones.json
-!amazon-granite/frontend/styles/
-!amazon-granite/frontend/styles/globals.css
-!amazon-granite/frontend/tests/
-!amazon-granite/frontend/tests/home-page.test.jsx
-!amazon-granite/frontend/public/
-!amazon-granite/frontend/public/materials/
-!amazon-granite/frontend/public/materials/quartamerica/
-!amazon-granite/frontend/public/materials/quartamerica/Calacatta Rio_3cm_quartz.png
+# nested project repos stay local and are not tracked here
 
 # track tarot sprint mock app
 !tarot-sprint-mock/
