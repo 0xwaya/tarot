@@ -22,6 +22,14 @@ This is the working directory for **Echo** — the autonomous AI operator runnin
 | `lc_adapter.py` | LLM invocation layer — rate limits, HARD STOP guards, session budget |
 | `langraph_bridge.py` | LangGraph CEO system integration (offline-safe) |
 
+### MemPalace Integration Highlights
+
+- MemPalace is integrated as Echo's backend memory substrate (wake-up + retrieval), not as a parallel control UI.
+- Primary launch path is gateway-native: `openclaw dashboard` / `openclaw gateway` triggers MemPalace warmup through internal `boot-md` + `workspace/BOOT.md`.
+- Startup warmup command is centralized in `tools/mempalace-startup.sh` with cooldown protection and audit logs in `logs/mempalace-startup.log`.
+- Runtime flags are controlled from the OpenClaw env path (`~/.openclaw/.env`), keeping Dashboard and Telegram as the production operator surfaces.
+- Integration follows MemPalace's local-first model (wake-up + on-demand search) with wing-scoped retrieval support.
+
 ### Model Routing
 
 | Tier | Model | Used for |
