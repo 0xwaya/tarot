@@ -30,6 +30,13 @@ This is the working directory for **Echo** — the autonomous AI operator runnin
 - Runtime flags are controlled from the OpenClaw env path (`~/.openclaw/.env`), keeping Dashboard and Telegram as the production operator surfaces.
 - Integration follows MemPalace's local-first model (wake-up + on-demand search) with wing-scoped retrieval support.
 
+### Telegram AAAK Compression (2026-04-10)
+
+- Telegram channel is now configured to auto-compress all messages using MemPalace AAAK before send.
+- Binary binding: `ECHO_MEMPALACE_BIN=/Users/pc/.openclaw/workspace/sandboxes/langraph-echo-sandbox/.venv/bin/mempalace` (in `.env`)
+- Trigger: `gateway-aaak-preflight` hook detects Telegram events and spawns `mempalace compress --wing sandboxes`
+- No user action required; compression is fully automatic and transparent.
+
 ### Model Routing
 
 | Tier | Model | Used for |
