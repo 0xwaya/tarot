@@ -13,14 +13,14 @@ This is the working directory for **Echo** — the autonomous AI operator runnin
 - Auth: bearer token injected at startup by `tools/secret-bootstrap.sh`
   - Secrets must be encrypted at rest (`credentials/openclaw.env.enc` + key) or injected by environment (launchd/CI/secret manager)
 
-### Core Python Modules (`sandboxes/langraph-echo-sandbox/`)
+### Runtime Layers (`runtime/echo-core/` + sandbox backend)
 
 | File | Role |
 |------|------|
-| `echo_agent.py` | Agentic brain — intent routing, slash commands, memory, tool execution |
-| `telegram_adapter.py` | Telegram → EchoAgent bridge with sanitization and length capping |
-| `lc_adapter.py` | LLM invocation layer — rate limits, HARD STOP guards, session budget |
-| `langraph_bridge.py` | LangGraph CEO system integration (offline-safe) |
+| `runtime/echo-core/sandbox_bridge.py` | Stable production runtime facade used by Dashboard and Telegram paths |
+| `tools/echo-runtime-invoke.sh` | Stable invoke entrypoint for production channel execution |
+| `sandboxes/langraph-echo-sandbox/echo_agent.py` | Backend agent core retained for compatibility and R&D |
+| `sandboxes/langraph-echo-sandbox/lc_adapter.py` | LLM invocation layer — rate limits, HARD STOP guards, session budget |
 
 ### MemPalace Integration Highlights
 
@@ -33,7 +33,7 @@ This is the working directory for **Echo** — the autonomous AI operator runnin
 ### Telegram AAAK Compression (2026-04-10)
 
 - Telegram channel is now configured to auto-compress all messages using MemPalace AAAK before send.
-- Binary binding: `ECHO_MEMPALACE_BIN=/Users/pc/.openclaw/workspace/sandboxes/langraph-echo-sandbox/.venv/bin/mempalace` (in `.env`)
+- Binary binding: `ECHO_MEMPALACE_BIN=/Users/pc/.openclaw/tools/echo-mempalace.sh` (in `.env` / hook env)
 - Trigger: `gateway-aaak-preflight` hook detects Telegram events and spawns `mempalace compress --wing sandboxes`
 - No user action required; compression is fully automatic and transparent.
 

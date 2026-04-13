@@ -5,6 +5,16 @@
 
 ---
 
+## Production Runtime Facade
+
+**Location:** `/Users/pc/.openclaw/runtime/echo-core/sandbox_bridge.py`
+
+### Purpose
+
+- Stable invocation surface for Dashboard and Telegram execution paths.
+- Keeps sandbox internals as a compatibility backend while production wiring migrates to runtime-first entrypoints.
+- Primary invoke wrapper: `/Users/pc/.openclaw/tools/echo-runtime-invoke.sh`
+
 ## LLM Layer: lc_adapter
 
 **Location:** `/Users/pc/.openclaw/workspace/sandboxes/langraph-echo-sandbox/lc_adapter.py`
