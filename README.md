@@ -19,8 +19,15 @@ This is the working directory for **Echo** — the autonomous AI operator runnin
 |------|------|
 | `runtime/echo-core/sandbox_bridge.py` | Stable production runtime facade used by Dashboard and Telegram paths |
 | `tools/echo-runtime-invoke.sh` | Stable invoke entrypoint for production channel execution |
+| `tools/echo-tracing-check.sh` | One-command tracing bootstrap check against live `.env` |
 | `sandboxes/langraph-echo-sandbox/echo_agent.py` | Backend agent core retained for compatibility and R&D |
 | `sandboxes/langraph-echo-sandbox/lc_adapter.py` | LLM invocation layer — rate limits, HARD STOP guards, session budget |
+
+### Tracing Highlights
+
+- Tracing is opt-in and controlled by `.env` (`ECHO_TRACING_ENABLED=1`).
+- Runtime bridge now initializes tracing on the production invoke path when enabled.
+- Verify with: `/Users/pc/.openclaw/tools/echo-tracing-check.sh`
 
 ### MemPalace Integration Highlights
 

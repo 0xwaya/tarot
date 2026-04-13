@@ -14,6 +14,13 @@
 - Stable invocation surface for Dashboard and Telegram execution paths.
 - Keeps sandbox internals as a compatibility backend while production wiring migrates to runtime-first entrypoints.
 - Primary invoke wrapper: `/Users/pc/.openclaw/tools/echo-runtime-invoke.sh`
+- Initializes tracing from production bridge path when `ECHO_TRACING_ENABLED=1`.
+
+### Runtime Tracing Check
+
+- Command: `/Users/pc/.openclaw/tools/echo-tracing-check.sh`
+- Output includes: `ECHO_TRACING_ENABLED`, `ECHO_TRACING_ENDPOINT`, `setup_tracing`, `is_tracing_active`
+- Uses live `/Users/pc/.openclaw/.env` before running the sandbox tracer bootstrap
 
 ## LLM Layer: lc_adapter
 
