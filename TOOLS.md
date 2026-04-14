@@ -3,27 +3,14 @@
 > Active tool inventory for Echo's current hardware and software stack.
 > Keep this file updated when infrastructure changes. This is the single source of truth for tool references during autonomous sessions.
 
----
-
 ## Production Runtime Facade
 
 **Location:** `/Users/pc/.openclaw/runtime/echo-core/sandbox_bridge.py`
 
 ### Purpose
-
-- Stable invocation surface for Dashboard and Telegram execution paths.
-- Keeps sandbox internals as a compatibility backend while production wiring migrates to runtime-first entrypoints.
-- Primary invoke wrapper: `/Users/pc/.openclaw/tools/echo-runtime-invoke.sh`
-- Initializes tracing from production bridge path when `ECHO_TRACING_ENABLED=1`.
-
-### Runtime Tracing Check
-
-- Command: `/Users/pc/.openclaw/tools/echo-tracing-check.sh`
-- Output includes: `ECHO_TRACING_ENABLED`, `ECHO_TRACING_ENDPOINT`, `setup_tracing`, `is_tracing_active`
-- Uses live `/Users/pc/.openclaw/.env` before running the sandbox tracer bootstrap
-
-## LLM Layer: lc_adapter
-
+Command: `/Users/pc/.openclaw/tools/echo-tracing-check.sh`
+Output includes: `ECHO_TRACING_ENABLED`, `ECHO_TRACING_ENDPOINT`, `setup_tracing`, `is_tracing_active`
+Uses live `/Users/pc/.openclaw/.env` before running the sandbox tracer bootstrap
 **Location:** `/Users/pc/.openclaw/workspace/sandboxes/langraph-echo-sandbox/lc_adapter.py`
 
 ### EchoAgent Exports

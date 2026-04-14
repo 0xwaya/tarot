@@ -8,20 +8,23 @@ This is the working directory for **Echo** — the autonomous AI operator runnin
 
 ### OpenClaw Gateway
 - Version: `2026.3.2`
-- Port: `18789` (loopback only)
+ Version: `2026.3.2`
 - Service: `ai.openclaw.gateway` (launchd)
 - Auth: bearer token injected at startup by `tools/secret-bootstrap.sh`
+
   - Secrets must be encrypted at rest (`credentials/openclaw.env.enc` + key) or injected by environment (launchd/CI/secret manager)
 
-### Runtime Layers (`runtime/echo-core/` + sandbox backend)
+### Runtime Layers (`runtime/echo-core/`)
 
 | File | Role |
 |------|------|
-| `runtime/echo-core/sandbox_bridge.py` | Stable production runtime facade used by Dashboard and Telegram paths |
+| `runtime/echo-core/sandbox_bridge.py` | Stable production runtime facade used by Dashboard and Telegram paths (sandbox fully disconnected) |
 | `tools/echo-runtime-invoke.sh` | Stable invoke entrypoint for production channel execution |
 | `tools/echo-tracing-check.sh` | One-command tracing bootstrap check against live `.env` |
-| `sandboxes/langraph-echo-sandbox/echo_agent.py` | Backend agent core retained for compatibility and R&D |
-| `sandboxes/langraph-echo-sandbox/lc_adapter.py` | LLM invocation layer — rate limits, HARD STOP guards, session budget |
+
+**Note:** As of 2026-04-14, all sandbox (R&D) backend wiring is fully removed from production. No code path, import, or CLI can route through `sandboxes/langraph-echo-sandbox`.
+| `tools/echo-tracing-check.sh` | One-command tracing bootstrap check against live `.env` |
+**Note:** As of 2026-04-14, all sandbox (R&D) backend wiring is fully removed from production. No code path, import, or CLI can route through `sandboxes/langraph-echo-sandbox`.
 
 ### Tracing Highlights
 
@@ -31,8 +34,9 @@ This is the working directory for **Echo** — the autonomous AI operator runnin
 
 ### MemPalace Integration Highlights
 
-- MemPalace is integrated as Echo's backend memory substrate (wake-up + retrieval), not as a parallel control UI.
-- Primary launch path is gateway-native: `openclaw dashboard` / `openclaw gateway` triggers MemPalace warmup through internal `boot-md` + `workspace/BOOT.md`.
+- MemPalace is the **only** backend memory substrate for Echo (wake-up + retrieval), not a parallel control UI.
+- All production memory context, recall, and augmentation is handled by MemPalace.
+- Gateway-native launch: `openclaw dashboard` / `openclaw gateway` triggers MemPalace warmup through internal `boot-md` + `workspace/BOOT.md`.
 - Startup warmup command is centralized in `tools/mempalace-startup.sh` with cooldown protection and audit logs in `logs/mempalace-startup.log`.
 - Runtime flags are controlled from the OpenClaw env path (`~/.openclaw/.env`), keeping Dashboard and Telegram as the production operator surfaces.
 - Integration follows MemPalace's local-first model (wake-up + on-demand search) with wing-scoped retrieval support.
@@ -68,11 +72,11 @@ The engineering override remains separate from these defaults:
 
 ---
 
-## Native Architecture
+### Native Architecture
 
 The current architecture is intentionally **gateway-native first**.
 
-- Control UI model edits should go through the OpenClaw Gateway on port `18789`, not through the Flask sandbox UI.
+- Control UI model edits must go through the OpenClaw Gateway on port `18789`. The Flask sandbox UI is fully deprecated and disconnected.
 - Agent model selection belongs to the Gateway config/agents surfaces, where `agents.list` and `agents.defaults` are already first-class config paths.
 - Usage visibility should come from the native `sessions.usage` and `sessions.usage.timeseries` RPCs first, with the local ledger monitor as the second line of defense.
 - Python OpenAI calls must go through `lc_adapter.echo_invoke()` so budget guards, token accounting, retries, and hard stops are enforced centrally.
@@ -107,6 +111,7 @@ The current architecture is intentionally **gateway-native first**.
 Operational docs maintained in local workspace state:
 - `api-ratelimit.md` — budget policy, incident history, daily checkpoints
 - `memory/memory.md` — persistent cross-session facts and architecture decisions
+- `ECHO_LANGGRAPH_DECISION_MEMO.md` — records the full deprecation and disconnection of sandbox backend as of 2026-04-14
 
 ## Echo Slash Commands
 
