@@ -7,6 +7,7 @@ This is the working directory for **Echo** — the autonomous AI operator runnin
 ## Stack Overview
 
 ### OpenClaw Gateway
+
 - Version: `2026.3.2`
  Version: `2026.3.2`
 - Service: `ai.openclaw.gateway` (launchd)
@@ -67,6 +68,7 @@ These are now pinned through the native Gateway `config.get` / `config.set` / `c
 | `openai-image-gen` | `openai/gpt-5-image` | Explicit image-generation default |
 
 The engineering override remains separate from these defaults:
+
 - Engineering toggle primary: `openai/gpt-5.2-codex`
 - Engineering toggle fallback: `openai/gpt-5.3-codex`
 
@@ -109,6 +111,7 @@ The current architecture is intentionally **gateway-native first**.
   - lifecycle validation, persistence tests, and rollout hardening
 
 Operational docs maintained in local workspace state:
+
 - `api-ratelimit.md` — budget policy, incident history, daily checkpoints
 - `memory/memory.md` — persistent cross-session facts and architecture decisions
 - `ECHO_LANGGRAPH_DECISION_MEMO.md` — records the full deprecation and disconnection of sandbox backend as of 2026-04-14
@@ -140,6 +143,7 @@ Operational docs maintained in local workspace state:
 | Wall-clock timeout | 600s | `handle()` returns partial |
 
 Per-channel budgets (lc_adapter):
+
 - global: 50 calls / 500K tokens
 - telegram: 20 calls / 200K tokens
 - dashboard: 30 calls / 300K tokens
@@ -151,6 +155,7 @@ Per-channel budgets (lc_adapter):
 **NOT a HARD STOP** — `rate_limit_exceeded` (429) is retried up to 3x with exponential backoff.
 
 Model guardrails:
+
 - Operational and background calls are restricted to `gpt-4.1-mini` or `gpt-4.1-nano`.
 - Optional override: set `ECHO_FORCE_MINI_ONLY=1` to force strategic mode to `gpt-4.1-mini`.
 
@@ -226,3 +231,16 @@ Last recorded result: **161 passed, 1 skipped** (2026-03-06)
   - Supabase: [`queencity-soundboard/supabase/migrations`](./queencity-soundboard/supabase/migrations)
 - OpenJaw core template: [`openjaw-core-template/`](./openjaw-core-template)
 - Echo docs: [`AGENTS.md`](./AGENTS.md) · [`TOOLS.md`](./TOOLS.md) · [`SOUL.md`](./SOUL.md) · [`IDENTITY.md`](./IDENTITY.md)
+
+---
+## Realtime Voice Panel (Control UI)
+- UI script: `/Users/pc/.openclaw/static/js/echo-dashboard-audio.js`
+- Styles: `/Users/pc/.openclaw/static/css/echo-dashboard.css`
+- Injection: `/Users/pc/.openclaw/static/css/_inject.js`
+- Proxy server: `/Users/pc/.openclaw/workspace/realtime-proxy/server.js`
+
+Start proxy (ephemeral key minting):
+```bash
+OPENAI_API_KEY=YOUR_KEY node /Users/pc/.openclaw/workspace/realtime-proxy/server.js
+```
+Reload Control UI at http://127.0.0.1:18789 to see the panel.

@@ -1,4 +1,5 @@
 # API Rate Limit & Budget Policy — Echo / OpenClaw
+>
 > **Single source of truth** for all OpenAI API budget guardrails.  
 > Last updated: 2026-03-14  
 > Enforcing module: `workspace/sandboxes/langraph-echo-sandbox/lc_adapter.py`
@@ -8,6 +9,7 @@
 ## Why This Document Exists
 
 On **2026-03-14** the API credit ledger spiked with two burst events:
+
 - `04:06 UTC`: 51 reserve-events, 13,651 tokens reserved in one minute
 - `04:08 UTC`: 49 reserve-events, 13,053 tokens reserved in one minute
 
@@ -23,6 +25,7 @@ Optional daily budget enforcement lives in `lc_adapter.py` and is **env-driven**
 If configured, it hard-stops before any API call once the daily cap would be exceeded.
 
 **Config (environment variables):**
+
 - `ECHO_DAILY_BUDGET_USD` — hard cap in USD (requires model cost map)
 - `ECHO_MODEL_COSTS_JSON` — JSON map of blended cost per 1M tokens, e.g. `{ "gpt-4.1-mini": 0.30 }`
 - `ECHO_DAILY_TOKEN_CAP` — optional token-only hard cap when cost map is not set
@@ -80,6 +83,7 @@ Each interaction channel has its own `_SessionGuard` instance, keyed by `budget_
 `telegram_adapter.telegram_invoke()` applies a per-user rate limit before any LLM call.
 
 **Config (environment variables):**
+
 - `TELEGRAM_RATE_LIMIT_PER_MINUTE` (default: 30)
 - `TELEGRAM_RATE_LIMIT_PER_HOUR` (default: 300)
 
@@ -130,6 +134,7 @@ These are **billing** signals, not transient rate limits. Retrying them burns cr
 ## Monitoring
 
 ### CLI (run from sandbox directory)
+
 ```bash
 # Last 60 minutes — normal check
 python tools/api_usage_monitor.py --minutes 60
@@ -144,6 +149,7 @@ python tools/api_usage_monitor.py --minutes 60 --json
 ```
 
 ### Dashboard API
+
 ```
 GET http://127.0.0.1:18789  →  Control → Usage  (native gateway sessions view)
 GET /api/usage/summary?minutes=60           (sandbox Flask endpoint; honors API-key auth when enabled)
@@ -151,6 +157,7 @@ GET /api/usage/summary?minutes=60&burst_count=8&burst_tokens=2000
 ```
 
 ### Ledger file
+
 `/Users/pc/.openclaw/logs/rl_ledger.jsonl` — one JSON record per token reserve/adjust event.
 
 ---
@@ -169,6 +176,7 @@ GET /api/usage/summary?minutes=60&burst_count=8&burst_tokens=2000
 ## Native Gateway Usage Dashboard
 
 The OpenClaw Gateway at `http://127.0.0.1:18789` → **Control → Usage** tracks sessions natively via the `sessions.usage` / `sessions.usage.timeseries` RPC methods. This view shows:
+
 - Token consumption per session
 - Daily usage timeline
 - Session error rates
@@ -227,11 +235,13 @@ The OpenClaw Gateway at `http://127.0.0.1:18789` → **Control → Usage** track
 ### 24h Monitor Sweep
 
 Command run:
+
 ```bash
 python tools/api_usage_monitor.py --minutes 1440 --burst-count 12 --burst-tokens 4000 --json
 ```
 
 Result:
+
 - `status`: `alert` (exit code `2`)
 - `window_record_count`: `238`
 - `window.reserve_events`: `127`
@@ -239,6 +249,7 @@ Result:
 - `window.actual_tokens`: `9,215`
 
 Alert buckets (historical, same spike window already known):
+
 - `2026-03-14T04:06:00+00:00` — `51` reserve events, `13,651` reserve tokens
 - `2026-03-14T04:08:00+00:00` — `49` reserve events, `13,053` reserve tokens
 
@@ -256,6 +267,7 @@ Alert buckets (historical, same spike window already known):
 - Injection status: `node ~/.openclaw/static/css/_inject.js --check` returns `OK injection present`
 
 Operational note:
+
 - Codex routing is currently an **operator-triggered engineering mode override** on `agents.defaults.model`.
 - Base per-agent defaults remain pinned for stability:
   - `main` → `openai/gpt-4.1-mini`

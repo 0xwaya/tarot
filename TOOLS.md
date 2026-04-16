@@ -8,6 +8,7 @@
 **Location:** `/Users/pc/.openclaw/runtime/echo-core/sandbox_bridge.py`
 
 ### Purpose
+
 Command: `/Users/pc/.openclaw/tools/echo-tracing-check.sh`
 Output includes: `ECHO_TRACING_ENABLED`, `ECHO_TRACING_ENDPOINT`, `setup_tracing`, `is_tracing_active`
 Uses live `/Users/pc/.openclaw/.env` before running the sandbox tracer bootstrap
@@ -37,7 +38,7 @@ Uses live `/Users/pc/.openclaw/.env` before running the sandbox tracer bootstrap
 
 > **Rate limit vs quota distinction:**
 > `rate_limit_exceeded` (429) = too many requests per minute → retried automatically, clears with backoff.
-> `insufficient_quota` / `hard_limit` = billing cap reached → HARD STOP, **never retry**, requires manual action at https://platform.openai.com/usage
+> `insufficient_quota` / `hard_limit` = billing cap reached → HARD STOP, **never retry**, requires manual action at <https://platform.openai.com/usage>
 
 ### Model Routing
 
@@ -168,23 +169,28 @@ When lc_adapter raises `RuntimeError("HARD STOP ...")`:
 ### Engineering Mode Toggle
 
 **Source files** (keep these, they are the correct surface):
+
 - `~/.openclaw/static/js/echo-dashboard-toggle.js` — toggle UI + `config.get/set` RPC logic
 - `~/.openclaw/static/css/echo-dashboard.css` — styles
 - `~/.openclaw/static/css/_inject.js` — idempotent injector
 
 **Current behavior:**
+
 - Engineering mode now preserves and restores both the main agent model and `tools.profile`
 - Dashboard chat filesystem access depends on `tools.profile`, not just `commands.native` / `commands.nativeSkills`
 - `messaging` omits native filesystem and shell tools; `coding` enables them
 
 **Apply/Verify:**
+
 ```bash
 node ~/.openclaw/static/css/_inject.js          # inject (idempotent)
 node ~/.openclaw/static/css/_inject.js --check  # verify without modifying
 ```
 
 **⚠️ Re-run after every `openclaw update`** — updates overwrite `dist/control-ui/index.html`.
+
 - **Load command:** `export OPENAI_API_KEY=$(python3 -c "import json; d=json.load(open('/Users/pc/.openclaw/agents/main/agent/models.json')); print(d['providers']['openai']['apiKey'])")`
+
 ---
 
 ## Python Environment

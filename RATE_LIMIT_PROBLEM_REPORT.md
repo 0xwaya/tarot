@@ -18,6 +18,7 @@ UI error on every chat message. Persistent all day, not improving.
 `⚠️ API rate limit reached (retries exhausted). Please wait a moment before continuing.` — retries happening, but still exhausting after 61s
 
 **Frequency (confirmed from log):**
+
 - 13:xx → 9 events
 - 14:xx → 15 events
 - 15:xx → 7 events
@@ -34,6 +35,7 @@ UI error on every chat message. Persistent all day, not improving.
 `openclaw.json` sets `openai/gpt-4.1-mini`. Gateway startup logs confirm `agent model: openai/gpt-4.1-mini`. But **every single run-start event in today's logs uses `model=gpt-4.1`**. The session has a manual override.
 
 **Evidence from `2bc41777-e83f-46fb-9576-98079ecab9d1.jsonl`:**
+
 - `"model":"gpt-4.1"` → **181 occurrences**
 - `"model":"gpt-4.1-mini"` → 8 occurrences (overridden)
 

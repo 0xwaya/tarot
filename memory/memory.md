@@ -1,4 +1,5 @@
 # memory.md — Echo Persistent Structured Memory
+>
 > **Persistent cross-session facts.** This file survives restarts. Date-scoped daily notes live in `memory/YYYY-MM-DD.md`.  
 > Last reviewed: 2026-03-14
 
@@ -40,15 +41,18 @@
 ## Architecture Decisions
 
 ### 2026-03-14: Gateway-Native Over External Patching
+
 - **Decision**: Use OpenClaw Gateway's native RPC (`config.get` / `config.set`) for all model routing and UI controls. Do not patch node_modules HTML.
 - **Rationale**: The `echo-dashboard-toggle.js` injection into `/usr/local/lib/node_modules/openclaw/dist/control-ui/index.html` works correctly and uses the proper `config.set` RPC, but fragile against gateway updates. Migration path: move the toggle logic to a gateway-native config rule when available.
 - **What stays**: The `_inject.js` / toggle works and is the correct surface (OpenClaw Gateway). The Flask sandbox engineering_mode param is a backend-only routing hint — no UI needed there.
 
 ### 2026-03-14: lc_adapter as Mandatory Enforcement Layer
+
 - **Decision**: ALL Python OpenAI calls MUST go through `lc_adapter.echo_invoke()`. Direct `ChatOpenAI` instantiation is forbidden.
 - **What broke it**: `app.py::_get_llm_for_chat()` called `ChatOpenAI` directly — deleted.
 
 ### 2026-03-07: Operator Restore
+
 - `_MAX_CALLS_PER_TASK`: 10 → 50
 - `_MAX_SESSION_TOKENS`: 200K → 500K  
 - `canvas.eval`, `canvas.snapshot` removed from `gateway.nodes.denyCommands`
@@ -67,6 +71,7 @@
 ---
 
 ## Passive Income Streams
+
 *(See `memory/passive-streams.md` for full detail)*
 
 - AI Automation Studio model (appointment + B2B pipeline automation, micro-SaaS)
@@ -78,6 +83,7 @@
 ## Loaded at Boot (Self-Audit Checklist)
 
 On every restart, verify:
+
 1. `canvas.eval` and `canvas.snapshot` NOT in `openclaw.json` → `gateway.nodes.denyCommands` ✓
 2. `_MAX_CALLS_PER_TASK >= 50` in `lc_adapter.py` ✓
 3. `_MAX_SESSION_TOKENS >= 500000` in `lc_adapter.py` ✓

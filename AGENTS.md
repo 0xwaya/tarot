@@ -3,10 +3,10 @@
 Future Default Model: Local Ollama for internal/heartbeats. Fallback: langchain openai chatbot Avoid high-token clouds.
 
 Model Routing Update:
+
 - Operational tasks: `openai/gpt-4.1-mini` as stable default
 - Strategic tasks: `openai/gpt-4.1` with mini/nano fallbacks
 - Background tasks: `openai/gpt-4.1-mini` with nano fallback (budget lane)
-
 
 > **Rate limit & budget policy:** `workspace/api-ratelimit.md` — full details of all guardrail layers, channel budgets, model routing, and emergency playbook.
 > **Persistent memory:** `workspace/memory/memory.md` — cross-session facts, system state, and architecture decisions. Loaded by `echo_agent.py` on every LLM call.
@@ -241,6 +241,7 @@ Gateway runs as a managed launchd service: `ai.openclaw.gateway`
 This message originates from `pi-embedded-helpers-*.js` in the OpenClaw npm dist — the plugin infrastructure layer used by the Copilot extension. It fires when the gateway returns a 429 from OpenAI.
 
 **Flow that caused quota burn:**
+
 ```
 Brave (OpenClaw Copilot extension)
   → WebSocket ws://127.0.0.1:18789   (gateway)
