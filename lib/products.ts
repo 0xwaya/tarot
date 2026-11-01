@@ -14,8 +14,10 @@ export type Product = {
   notes?: string[];
 };
 
-export const herbSafety = (p: Product) => (p.herbs ?? []).map((k) => corr.herbSafety[k]);
-export const crystalFacts = (p: Product) => (p.stones ?? []).map((k) => corr.crystalFacts[k]);
+// The research notes include seller-facing instructions ("Disclose…", "Label…"); show customers only the facts.
+const forCustomers = (t: string) => t.replace(/\s*(Disclose|Label|Sell it only)[^.]*\.?/g, "").replace(/,? so state when stones are natural or dyed\./, ".").trim();
+export const herbSafety = (p: Product) => (p.herbs ?? []).map((k) => forCustomers(corr.herbSafety[k]));
+export const crystalFacts = (p: Product) => (p.stones ?? []).map((k) => forCustomers(corr.crystalFacts[k]));
 export const COMPLIANCE_NOTE = "Our pieces are spiritual and traditional tools, offered for ritual, reflection and entertainment. They are not medical products and do not cure, treat or prevent any condition, and no outcome is guaranteed.";
 
 export const LOCAL_PRODUCTS: Product[] = [
