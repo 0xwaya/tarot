@@ -5,7 +5,7 @@
   --font-serif: var(--font-cinzel), Georgia, serif;
   --font-sans: var(--font-inter), system-ui, sans-serif;
 }
-body { background: radial-gradient(ellipse at top, #2a1745 0%, #120a1f 60%) fixed; color: #e9e4f4; }
+body { color: #e9e4f4; }
 .glow { text-shadow: 0 0 18px rgba(243,194,107,.45); }
 .flip { perspective: 1000px; }
 .flip-inner { transition: transform .9s cubic-bezier(.2,.7,.2,1); transform-style: preserve-3d; position: relative; }
@@ -20,3 +20,15 @@ body { background: radial-gradient(ellipse at top, #2a1745 0%, #120a1f 60%) fixe
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 .float { animation: float 5s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .fade-up, .moon-drift, .float, .flip-inner { animation: none !important; transition: none !important; } }
+
+/* mobile */
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 4.5rem; }
+body { background: #120a1f; }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at top, #2a1745 0%, #120a1f 60%); }
+.safe-top { padding-top: env(safe-area-inset-top); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+.safe-x { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
+.flip-inner { will-change: transform; }
+.face { -webkit-backface-visibility: hidden; }
+.flip-inner { -webkit-transform-style: preserve-3d; }
+a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }

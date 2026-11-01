@@ -3,11 +3,11 @@ import { hasArt } from "@/lib/art";
 import type { Card } from "@/lib/cards";
 const SYM: Record<string, string> = { Wands: "🜂", Cups: "🜄", Swords: "🜁", Pentacles: "⛤" };
 const ROMAN = ["0","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX","XXI"];
-export function CardFace({ card, reversed }: { card: Card; reversed?: boolean }) {
+export function CardFace({ card, reversed, sizes = "(max-width:640px) 45vw, 220px", label = true }: { card: Card; reversed?: boolean; sizes?: string; label?: boolean }) {
   if (hasArt(card.id)) return (
     <div className="relative w-full aspect-[200/340] rounded-[14px] overflow-hidden border border-silver/40 shadow-lg" style={{ transform: reversed ? "rotate(180deg)" : undefined }}>
-      <Image src={`/cards/${card.id}.webp`} alt={card.name} fill sizes="(max-width:768px) 40vw, 220px" className="object-cover" />
-      <span className="absolute bottom-0 inset-x-0 text-center text-xs font-serif text-candle bg-night/70 py-1">{card.name}</span>
+      <Image src={`/cards/${card.id}.webp`} alt={card.name} fill sizes={sizes} quality={70} className="object-cover" />
+      {label && <span className="absolute bottom-0 inset-x-0 text-center text-xs font-serif text-candle bg-night/70 py-1">{card.name}</span>}
     </div>);
   return <SvgFace card={card} reversed={reversed} />;
 }
@@ -29,8 +29,8 @@ function SvgFace({ card, reversed }: { card: Card; reversed?: boolean }) {
     </svg>
   );
 }
-export function CardBack() {
-  return (<div className="relative w-full aspect-[200/340] rounded-[14px] overflow-hidden border border-silver/40"><Image src="/cards/back.webp" alt="" fill sizes="220px" className="object-cover" /></div>);
+export function CardBack({ sizes = "(max-width:640px) 45vw, 220px" }: { sizes?: string }) {
+  return (<div className="relative w-full aspect-[200/340] rounded-[14px] overflow-hidden border border-silver/40"><Image src="/cards/back.webp" alt="" fill sizes={sizes} quality={70} className="object-cover" /></div>);
 }
 export function SvgCardBack() {
   return (

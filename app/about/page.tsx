@@ -1,9 +1,9 @@
 export const metadata = { title: "About tarot", description: "Where tarot, astrology and modern witchcraft actually come from: a short, sourced history." };
 const S = ({ t, children }: { t: string; children: React.ReactNode }) => (
-  <section className="rounded-2xl bg-plum/50 border border-silver/15 p-6 fade-up"><h2 className="font-serif text-2xl text-candle mb-2">{t}</h2><div className="text-silver/90 leading-relaxed space-y-3">{children}</div></section>);
+  <section className="rounded-2xl bg-plum/50 border border-silver/15 p-5 sm:p-6 fade-up"><h2 className="font-serif text-xl sm:text-2xl text-candle mb-2">{t}</h2><div className="text-silver/90 leading-relaxed space-y-3">{children}</div></section>);
 export default function Page() {
   return (<div className="max-w-3xl mx-auto space-y-6">
-    <h1 className="font-serif text-4xl text-center glow">About tarot</h1>
+    <h1 className="font-serif text-3xl sm:text-4xl text-center glow">About tarot</h1>
     <p className="text-center text-silver">A short history of the cards and the craft, told the way historians tell it.</p>
     <S t="A card game from Renaissance Italy">
       <p>Tarot began in 15th-century northern Italy as a card game called <em>trionfi</em>, later <em>tarocchi</em>. The oldest surviving decks are hand-painted luxury sets, such as the Visconti-Sforza cards from the mid-1400s.</p>

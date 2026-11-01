@@ -25,17 +25,17 @@ export default async function Page({ params }: P) {
   const live = shopifyEnabled();
   const safety = [...herbSafety(p), ...(p.notes ?? [])];
   return (<div className="max-w-5xl mx-auto">
-    <Link href="/shop" className="text-sm text-silver/70 hover:text-candle">← The Apothecary</Link>
+    <Link href="/shop" className="inline-flex items-center min-h-11 text-sm text-silver/70 hover:text-candle">← The Apothecary</Link>
     <div className="grid md:grid-cols-2 gap-8 mt-4 fade-up">
-      <div className="relative aspect-square rounded-2xl overflow-hidden border border-silver/15"><Image src={p.image} alt={p.name} fill sizes="(max-width:768px) 100vw, 500px" className="object-cover" priority /></div>
+      <div className="relative aspect-square rounded-2xl overflow-hidden border border-silver/15"><Image src={p.image} alt={p.name} fill sizes="(max-width:768px) 100vw, 500px" quality={75} className="object-cover" /></div>
       <div className="space-y-4">
         <p className="text-xs uppercase tracking-widest text-silver/60">{p.category}</p>
-        <h1 className="font-serif text-3xl glow">{p.name}</h1>
+        <h1 className="font-serif text-2xl sm:text-3xl glow">{p.name}</h1>
         <p className="text-2xl text-candle">${p.price}</p>
         <p className="text-silver">{p.blurb}</p>
         {live && p.checkoutUrl
-          ? <a href={p.checkoutUrl} className="inline-block px-6 py-2 rounded-full bg-candle text-night font-semibold">Buy</a>
-          : <button disabled className="px-6 py-2 rounded-full border border-silver/30 opacity-60">Coming soon</button>}
+          ? <a href={p.checkoutUrl} className="inline-flex items-center min-h-12 px-6 rounded-full bg-candle text-night font-semibold">Buy</a>
+          : <button disabled className="min-h-12 px-6 rounded-full border border-silver/30 opacity-60">Coming soon</button>}
         <List t="Materials & treatments" items={p.materials ?? []} />
         <List t="Crystal facts" items={crystalFacts(p)} />
         <List t="Herb & safety notes" items={safety} tone="border-candle/40 bg-candle/5" />
