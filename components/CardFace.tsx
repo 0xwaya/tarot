@@ -1,7 +1,17 @@
+import Image from "next/image";
+import { hasArt } from "@/lib/art";
 import type { Card } from "@/lib/cards";
 const SYM: Record<string, string> = { Wands: "🜂", Cups: "🜄", Swords: "🜁", Pentacles: "⛤" };
 const ROMAN = ["0","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX","XXI"];
 export function CardFace({ card, reversed }: { card: Card; reversed?: boolean }) {
+  if (hasArt(card.id)) return (
+    <div className="relative w-full aspect-[200/340] rounded-[14px] overflow-hidden border border-silver/40 shadow-lg" style={{ transform: reversed ? "rotate(180deg)" : undefined }}>
+      <Image src={`/cards/${card.id}.webp`} alt={card.name} fill sizes="(max-width:768px) 40vw, 220px" className="object-cover" />
+      <span className="absolute bottom-0 inset-x-0 text-center text-xs font-serif text-candle bg-night/70 py-1">{card.name}</span>
+    </div>);
+  return <SvgFace card={card} reversed={reversed} />;
+}
+function SvgFace({ card, reversed }: { card: Card; reversed?: boolean }) {
   const hue = { Fire: "#d9773f", Water: "#4a8fd6", Air: "#c9cbd6", Earth: "#6fae6a" }[card.element] ?? "#9b6bd6";
   const top = card.arcana === "major" ? ROMAN[card.number] : card.name.split(" ")[0];
   const glyph = card.arcana === "major" ? "✶" : SYM[card.suit!];
@@ -20,6 +30,9 @@ export function CardFace({ card, reversed }: { card: Card; reversed?: boolean })
   );
 }
 export function CardBack() {
+  return (<div className="relative w-full aspect-[200/340] rounded-[14px] overflow-hidden border border-silver/40"><Image src="/cards/back.webp" alt="" fill sizes="220px" className="object-cover" /></div>);
+}
+export function SvgCardBack() {
   return (
     <svg viewBox="0 0 200 340" className="w-full h-full" aria-hidden>
       <rect x="2" y="2" width="196" height="336" rx="14" fill="#2a1745" stroke="#c9cbd6" strokeWidth="2" />

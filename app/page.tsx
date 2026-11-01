@@ -1,5 +1,6 @@
 export const revalidate = 3600;
 import Link from "next/link";
+import Image from "next/image";
 import { SITE } from "@/lib/site";
 import { moonPhase } from "@/lib/moon";
 import { CARDS } from "@/lib/cards";
@@ -9,14 +10,15 @@ const topics = [
   ["Astrology & Horoscopes", "Guidance for all twelve signs.", "/horoscope"],
   ["Protection", "White-witch shields against ill intent.", "/reading?spread=protection"],
   ["Blessings", "Oils and rites for abundance and love.", "/shop"],
-  ["Cleansing", "Palo santo, moonwater and salt rituals.", "/shop"],
+  ["Cleansing", "White sage, moonwater and salt rituals.", "/shop"],
   ["Moon Magic", "Work with each phase: set, grow, release, rest.", "/horoscope"],
 ];
 export default function Home() {
   const featured = ["the-star", "the-high-priestess", "the-moon"].map((id) => CARDS.find((c) => c.id === id)!);
   const moon = moonPhase();
   return (<>
-    <section className="grid md:grid-cols-2 gap-10 items-center mb-16">
+    <section className="relative grid md:grid-cols-2 gap-10 items-center mb-16 rounded-3xl overflow-hidden p-6 md:p-10">
+      <Image src="/img/hero.webp" alt="" fill priority sizes="100vw" className="object-cover -z-10 opacity-70" />
       <div>
         <p className="uppercase tracking-[.3em] text-xs text-candle mb-3">Tarot · Astrology · White-witch craft</p>
         <h1 className="font-serif text-4xl md:text-6xl glow mb-4">{SITE.name}</h1>
