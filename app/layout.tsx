@@ -27,8 +27,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <main className="max-w-6xl mx-auto px-4 py-8 sm:py-10">{children}</main>
       <footer className="border-t border-silver/15 text-sm text-silver/70">
         <div className="max-w-6xl mx-auto px-4 py-6 flex flex-wrap gap-4">
-          <span>© {new Date().getFullYear()} {SITE.name}. For entertainment and spiritual reflection only.</span>
-          <Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link>
+          <span>© {new Date().getFullYear()} {SITE.name}. For spiritual and entertainment purposes only.</span>
+          <Link href="/about">About tarot</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link>
         </div>
       </footer>
     </body></html>

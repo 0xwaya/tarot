@@ -1,0 +1,229 @@
+{
+ "intentions": {
+  "protection": {
+   "stones": [
+    "black tourmaline",
+    "obsidian",
+    "smoky quartz",
+    "onyx",
+    "tiger's eye",
+    "jet",
+    "hematite"
+   ],
+   "herbs": [
+    "rosemary",
+    "rue",
+    "bay laurel",
+    "angelica",
+    "black pepper",
+    "garlic",
+    "juniper",
+    "rowan (folk charm)",
+    "St John's wort"
+   ],
+   "colors": [
+    "black",
+    "white",
+    "deep purple"
+   ],
+   "moonPhases": [
+    "waning moon (banishing)",
+    "dark moon"
+   ],
+   "cards": [
+    "The Emperor",
+    "The Chariot",
+    "Strength",
+    "Nine of Wands",
+    "Four of Swords"
+   ]
+  },
+  "cleansing": {
+   "stones": [
+    "selenite",
+    "clear quartz",
+    "amethyst"
+   ],
+   "herbs": [
+    "palo santo (ethically sourced only)",
+    "garden sage / white sage (cultivated)",
+    "cedar",
+    "rosemary",
+    "lavender",
+    "sea salt",
+    "hyssop",
+    "lemon"
+   ],
+   "colors": [
+    "white",
+    "silver",
+    "pale blue"
+   ],
+   "moonPhases": [
+    "waning moon",
+    "full moon (charging tools)"
+   ],
+   "cards": [
+    "Temperance",
+    "Death",
+    "The Star",
+    "Six of Swords"
+   ]
+  },
+  "love": {
+   "stones": [
+    "rose quartz",
+    "rhodonite",
+    "garnet",
+    "moonstone",
+    "emerald"
+   ],
+   "herbs": [
+    "rose",
+    "jasmine",
+    "lavender",
+    "cinnamon",
+    "vanilla",
+    "basil",
+    "damiana"
+   ],
+   "colors": [
+    "pink",
+    "red",
+    "green"
+   ],
+   "moonPhases": [
+    "waxing moon",
+    "full moon"
+   ],
+   "cards": [
+    "The Lovers",
+    "Two of Cups",
+    "Ace of Cups",
+    "The Empress"
+   ]
+  },
+  "abundance": {
+   "stones": [
+    "citrine",
+    "green aventurine",
+    "pyrite",
+    "jade",
+    "tiger's eye"
+   ],
+   "herbs": [
+    "basil",
+    "cinnamon",
+    "bay leaf",
+    "clove",
+    "mint",
+    "patchouli",
+    "chamomile"
+   ],
+   "colors": [
+    "green",
+    "gold"
+   ],
+   "moonPhases": [
+    "new moon (set intention)",
+    "waxing moon (grow)"
+   ],
+   "cards": [
+    "Ace of Pentacles",
+    "Nine of Pentacles",
+    "Wheel of Fortune",
+    "The Sun"
+   ]
+  },
+  "blessing": {
+   "stones": [
+    "clear quartz",
+    "angelite",
+    "moonstone"
+   ],
+   "herbs": [
+    "frankincense",
+    "myrrh",
+    "rose",
+    "olive oil (anointing)",
+    "lavender"
+   ],
+   "colors": [
+    "white",
+    "gold"
+   ],
+   "moonPhases": [
+    "full moon"
+   ],
+   "cards": [
+    "The Star",
+    "The Sun",
+    "Ten of Cups",
+    "The Hierophant"
+   ]
+  }
+ },
+ "moonPhases": {
+  "new": "Set intentions, plant seeds, begin.",
+  "waxing": "Draw in and grow: love, money, success.",
+  "full": "Charge crystals and water, celebrate, peak energy, divination.",
+  "waning": "Release, banish, cleanse, cut cords.",
+  "dark": "Folk term for the last sliver of the waning crescent through the new moon: rest, shadow work, deep protection."
+ },
+ "colors": {
+  "white": "purity, all-purpose, blessing",
+  "black": "protection, absorbing negativity",
+  "red": "passion, courage",
+  "pink": "self-love, romance",
+  "green": "money, growth, healing",
+  "gold": "success, solar power",
+  "purple": "psychic power, spirit",
+  "blue": "peace, truth, healing",
+  "silver": "moon, intuition"
+ },
+ "paloSanto": {
+  "species": "Bursera graveolens (Ecuador, Peru, Colombia)",
+  "note": "Bursera graveolens is not listed as endangered, but demand drives illegal cutting; Ecuador and Peru regulate harvest. Ethical product should be naturally fallen deadwood, harvested legally, with a traceable supplier and ideally a replanting program. Do not confuse with Bulnesia sarmientoi ('palo santo' of the Gran Chaco), which is CITES Appendix II-listed and should not be sold. Also offer cultural respect: traditional use in Andean/Indigenous practice.",
+  "altAlternatives": [
+   "cedar",
+   "rosemary bundles",
+   "garden sage",
+   "lavender"
+  ]
+ },
+ "whiteSage": "Salvia apiana wild harvest is a conservation and cultural-respect concern; sell only cultivated sage, or rosemary/garden sage alternatives.",
+ "compliance": "Under FTC law, ads must be truthful and not misleading, and any objective claim needs substantiation. Health claims generally need competent and reliable scientific evidence (FTC Health Products Compliance Guidance, Dec 2022). Describe items as spiritual and traditional tools, never claim they cure, treat or protect health or guarantee outcomes, disclose stone treatments and imitations, and label herb cautions. Some US states and cities regulate paid fortune-telling, so adding 'for spiritual and entertainment purposes' is a common practice (this is not legal advice; check the local rules for where the business operates).",
+ "moonPhaseAstronomy": {
+  "source": "NASA science.nasa.gov/moon/moon-phases",
+  "phases": [
+   "new",
+   "waxing crescent",
+   "first quarter",
+   "waxing gibbous",
+   "full",
+   "waning gibbous",
+   "third (last) quarter",
+   "waning crescent"
+  ],
+  "synodicMonthDays": 29.5,
+  "note": "'Dark moon' is a folk/ritual term for the days around the new moon, not an astronomical phase. For exact phase times use USNO (aa.usno.navy.mil/data/MoonPhases)."
+ },
+ "crystalFacts": {
+  "_note": "Mineral facts from Wikipedia mineral pages, which cite Mindat (Mindat itself returned 403), and GIA. Use them in product copy and care cards.",
+  "selenite": "Selenite is a variety of gypsum (Mohs 2) and is moderately soluble in water. Never cleanse it in water or salt water; use smoke, moonlight or sound instead.",
+  "citrine": "According to GIA, natural citrine is rare and most citrine on the market is heat-treated amethyst. Disclose heat treatment in listings.",
+  "hematite": "'Magnetic hematite' is usually synthetic hematine. Label it 'magnetic hematine' and not natural hematite.",
+  "malachite": "Malachite is a soft copper carbonate (Mohs 3.5–4). Polished pieces are fine for jewelry, but do not use it in drinking elixirs and avoid breathing dust when cutting it.",
+  "pyrite": "Pyrite can tarnish or oxidize when wet. Keep it dry.",
+  "lapisLazuli": "Lapis lazuli is a rock (lazurite, calcite, pyrite), not a single mineral. Dyed imitations are common, so state when stones are natural or dyed."
+ },
+ "herbSafety": {
+  "_note": "From NIH NCCIH 'Usefulness and Safety' pages. These are cautions for product labels and not medical advice.",
+  "sage": "Common sage contains thujone. NCCIH says it may be unsafe in high doses, over long periods or during pregnancy.",
+  "lavender": "NCCIH says lavender is likely safe in food amounts. Topical oils can irritate skin, so dilute them.",
+  "chamomile": "NCCIH says chamomile is likely safe in tea amounts. It can trigger allergy in people sensitive to ragweed-family plants.",
+  "stJohnsWort": "NCCIH warns St John's wort can interact dangerously with many medicines. Sell it only for ritual and non-ingestible use, and label it clearly.",
+  "rueMugwort": "Rue and mugwort are traditional pregnancy cautions (not verified on NCCIH this session). Label them 'not for internal use; avoid in pregnancy'.",
+  "smoke": "Burn palo santo, sage and resins only in a ventilated space and away from pets, children and anyone with asthma."
+ }
+}

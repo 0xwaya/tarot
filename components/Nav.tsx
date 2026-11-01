@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-const LINKS = [["/reading", "Readings"], ["/horoscope", "Horoscopes"], ["/shop", "Shop"]];
+const LINKS = [["/reading", "Readings"], ["/horoscope", "Horoscopes"], ["/shop", "Shop"], ["/about", "About"]];
 export function Nav() {
   const [open, setOpen] = useState(false); const path = usePathname();
   return (<>
