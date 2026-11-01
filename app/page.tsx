@@ -1,10 +1,12 @@
-export const revalidate = 3600;
+export const revalidate = 3600; // daily card + moon recompute hourly; cron also revalidates
 import Link from "next/link";
 import Image from "next/image";
 import { SITE } from "@/lib/site";
 import { moonPhase } from "@/lib/moon";
 import { CARDS } from "@/lib/cards";
 import { CardFace } from "@/components/CardFace";
+import { dailyCard } from "@/lib/daily";
+import { dayKey } from "@/lib/seed";
 const topics = [
   ["Tarot", "Full 78-card deck, four spreads, reversals.", "/reading"],
   ["Astrology & Horoscopes", "Guidance for all twelve signs.", "/horoscope"],
@@ -16,8 +18,9 @@ const topics = [
 export default function Home() {
   const featured = ["the-star", "the-high-priestess", "the-moon"].map((id) => CARDS.find((c) => c.id === id)!);
   const moon = moonPhase();
+  const today = dailyCard();
   return (<>
-    <section className="relative grid md:grid-cols-2 gap-10 items-center mb-16 rounded-3xl overflow-hidden p-6 md:p-10">
+    <section className="fade-up relative grid md:grid-cols-2 gap-10 items-center mb-16 rounded-3xl overflow-hidden p-6 md:p-10">
       <Image src="/img/hero.webp" alt="" fill priority sizes="100vw" className="object-cover -z-10 opacity-70" />
       <div>
         <p className="uppercase tracking-[.3em] text-xs text-candle mb-3">Tarot · Astrology · White-witch craft</p>
@@ -31,6 +34,17 @@ export default function Home() {
       </div>
       <div className="flex justify-center gap-3">
         {featured.map((c, i) => <div key={c.id} className={`w-28 md:w-40 ${i === 1 ? "-translate-y-4" : (i ? "rotate-6" : "-rotate-6")}`}><CardFace card={c} /></div>)}
+      </div>
+    </section>
+    <section className="fade-up grid md:grid-cols-[220px_1fr] gap-8 items-center mb-16 p-6 rounded-3xl bg-plum/50 border border-candle/25">
+      <div className="w-40 md:w-full mx-auto float"><CardFace card={today.card} reversed={today.reversed} /></div>
+      <div>
+        <p className="uppercase tracking-[.3em] text-xs text-candle mb-2">Card of the day · {dayKey()}</p>
+        <h2 className="font-serif text-3xl mb-2">{today.card.name}{today.reversed && <span className="text-candle text-xl"> (reversed)</span>}</h2>
+        <p className="text-silver/70 text-sm mb-3">{today.card.keywords.join(" · ")}</p>
+        <p className="text-silver leading-relaxed mb-4">{today.reversed ? today.card.reversed : today.card.upright}</p>
+        {today.card.spirit && <p className="text-silver/80 text-sm mb-4">{today.card.spirit}</p>}
+        <Link href="/reading?spread=three&auto=1" className="inline-block px-5 py-2 rounded-full border border-candle text-candle hover:bg-candle hover:text-night transition">Go deeper with a 3-card reading</Link>
       </div>
     </section>
     <section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

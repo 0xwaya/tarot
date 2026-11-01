@@ -1,0 +1,326 @@
+[
+ {
+  "sign": "Aries",
+  "dates": "Mar 21-Apr 19",
+  "element": "Fire",
+  "modality": "Cardinal",
+  "ruler": "Mars",
+  "traits": [
+   "bold",
+   "pioneering",
+   "energetic",
+   "impatient"
+  ],
+  "love": "Passionate pursuit; needs excitement and honesty.",
+  "work": "Thrives leading new initiatives and competing.",
+  "wellness": "Burn off energy through movement; watch head tension and haste.",
+  "stones": [
+   "carnelian",
+   "red jasper",
+   "bloodstone"
+  ],
+  "herbs": [
+   "cinnamon",
+   "black pepper",
+   "basil"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ },
+ {
+  "sign": "Taurus",
+  "dates": "Apr 20-May 20",
+  "element": "Earth",
+  "modality": "Fixed",
+  "ruler": "Venus",
+  "traits": [
+   "steady",
+   "sensual",
+   "loyal",
+   "stubborn"
+  ],
+  "love": "Devoted and affectionate; values security and touch.",
+  "work": "Builds lasting value; excels with finance, craft and beauty.",
+  "wellness": "Grounding routines, good food, throat care.",
+  "stones": [
+   "rose quartz",
+   "emerald",
+   "green aventurine"
+  ],
+  "herbs": [
+   "rose",
+   "thyme",
+   "patchouli"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ },
+ {
+  "sign": "Gemini",
+  "dates": "May 21-Jun 20",
+  "element": "Air",
+  "modality": "Mutable",
+  "ruler": "Mercury",
+  "traits": [
+   "curious",
+   "witty",
+   "adaptable",
+   "restless"
+  ],
+  "love": "Needs mental connection and lively conversation.",
+  "work": "Communication, writing, sales, teaching.",
+  "wellness": "Calm the nervous system; breathwork and journaling.",
+  "stones": [
+   "agate",
+   "citrine",
+   "clear quartz"
+  ],
+  "herbs": [
+   "lavender",
+   "peppermint",
+   "dill"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ },
+ {
+  "sign": "Cancer",
+  "dates": "Jun 21-Jul 22",
+  "element": "Water",
+  "modality": "Cardinal",
+  "ruler": "Moon",
+  "traits": [
+   "nurturing",
+   "intuitive",
+   "protective",
+   "moody"
+  ],
+  "love": "Deep emotional bonds; craves safety and home.",
+  "work": "Caregiving, hospitality, home-based work.",
+  "wellness": "Honor emotional tides; nourishing food, rest by water.",
+  "stones": [
+   "moonstone",
+   "pearl",
+   "selenite"
+  ],
+  "herbs": [
+   "chamomile",
+   "jasmine",
+   "lemon balm"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ },
+ {
+  "sign": "Leo",
+  "dates": "Jul 23-Aug 22",
+  "element": "Fire",
+  "modality": "Fixed",
+  "ruler": "Sun",
+  "traits": [
+   "generous",
+   "radiant",
+   "proud",
+   "dramatic"
+  ],
+  "love": "Big-hearted romance; needs admiration and loyalty.",
+  "work": "Leadership, performance, creative direction.",
+  "wellness": "Heart-centered exercise; joy as medicine.",
+  "stones": [
+   "sunstone",
+   "tiger's eye",
+   "citrine"
+  ],
+  "herbs": [
+   "sunflower",
+   "marigold",
+   "frankincense"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ },
+ {
+  "sign": "Virgo",
+  "dates": "Aug 23-Sep 22",
+  "element": "Earth",
+  "modality": "Mutable",
+  "ruler": "Mercury",
+  "traits": [
+   "analytical",
+   "helpful",
+   "precise",
+   "critical"
+  ],
+  "love": "Shows love through care and acts of service.",
+  "work": "Detail, health, editing, systems.",
+  "wellness": "Digestive care, herbal teas, release perfectionism.",
+  "stones": [
+   "amazonite",
+   "moss agate",
+   "peridot"
+  ],
+  "herbs": [
+   "rosemary",
+   "fennel",
+   "lavender"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ },
+ {
+  "sign": "Libra",
+  "dates": "Sep 23-Oct 22",
+  "element": "Air",
+  "modality": "Cardinal",
+  "ruler": "Venus",
+  "traits": [
+   "harmonious",
+   "diplomatic",
+   "charming",
+   "indecisive"
+  ],
+  "love": "Seeks partnership, beauty and fairness.",
+  "work": "Law, design, mediation, client work.",
+  "wellness": "Balance in all things; kidney and skin care, art.",
+  "stones": [
+   "lapis lazuli",
+   "opal",
+   "rose quartz"
+  ],
+  "herbs": [
+   "rose",
+   "vanilla",
+   "yarrow"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ },
+ {
+  "sign": "Scorpio",
+  "dates": "Oct 23-Nov 21",
+  "element": "Water",
+  "modality": "Fixed",
+  "ruler": "Mars (traditional); Pluto (modern)",
+  "traits": [
+   "intense",
+   "magnetic",
+   "loyal",
+   "secretive"
+  ],
+  "love": "All-in intimacy built on trust.",
+  "work": "Research, healing, finance, transformation work.",
+  "wellness": "Emotional release; detox through rest, not extremes.",
+  "stones": [
+   "obsidian",
+   "garnet",
+   "smoky quartz"
+  ],
+  "herbs": [
+   "mugwort",
+   "myrrh",
+   "basil"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ },
+ {
+  "sign": "Sagittarius",
+  "dates": "Nov 22-Dec 21",
+  "element": "Fire",
+  "modality": "Mutable",
+  "ruler": "Jupiter",
+  "traits": [
+   "adventurous",
+   "optimistic",
+   "philosophical",
+   "blunt"
+  ],
+  "love": "Needs freedom and a fellow explorer.",
+  "work": "Travel, teaching, publishing, spirituality.",
+  "wellness": "Outdoor movement; care for hips and liver.",
+  "stones": [
+   "turquoise",
+   "sodalite",
+   "amethyst"
+  ],
+  "herbs": [
+   "sage",
+   "clove",
+   "dandelion"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ },
+ {
+  "sign": "Capricorn",
+  "dates": "Dec 22-Jan 19",
+  "element": "Earth",
+  "modality": "Cardinal",
+  "ruler": "Saturn",
+  "traits": [
+   "ambitious",
+   "disciplined",
+   "patient",
+   "reserved"
+  ],
+  "love": "Loyal and long-term minded; love grows over time.",
+  "work": "Management, building, long-range goals.",
+  "wellness": "Bones, joints and rest; schedule downtime.",
+  "stones": [
+   "garnet",
+   "onyx",
+   "black tourmaline"
+  ],
+  "herbs": [
+   "comfrey",
+   "cypress",
+   "vetiver"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ },
+ {
+  "sign": "Aquarius",
+  "dates": "Jan 20-Feb 18",
+  "element": "Air",
+  "modality": "Fixed",
+  "ruler": "Saturn (traditional); Uranus (modern)",
+  "traits": [
+   "inventive",
+   "humanitarian",
+   "independent",
+   "detached"
+  ],
+  "love": "Friendship first; values freedom and originality.",
+  "work": "Tech, community, innovation, activism.",
+  "wellness": "Circulation and nervous system; community movement.",
+  "stones": [
+   "amethyst",
+   "aquamarine",
+   "labradorite"
+  ],
+  "herbs": [
+   "lavender",
+   "frankincense",
+   "fennel"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ },
+ {
+  "sign": "Pisces",
+  "dates": "Feb 19-Mar 20",
+  "element": "Water",
+  "modality": "Mutable",
+  "ruler": "Jupiter (traditional); Neptune (modern)",
+  "traits": [
+   "compassionate",
+   "dreamy",
+   "artistic",
+   "escapist"
+  ],
+  "love": "Romantic and soulful; needs tenderness.",
+  "work": "Art, music, healing, spiritual work.",
+  "wellness": "Feet care, sleep, cleansing baths, boundaries.",
+  "stones": [
+   "amethyst",
+   "aquamarine",
+   "moonstone"
+  ],
+  "herbs": [
+   "seaweed/kelp",
+   "lotus",
+   "mugwort"
+  ],
+  "source": "Rulers verified against Alan Leo, Astrology for All (archive.org, astrologyforall00leogoog). Leo uses traditional rulers and notes Neptune's modern link to Pisces. Stones and herbs are modern folk correspondences. Original wording."
+ }
+]

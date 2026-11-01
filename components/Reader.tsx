@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { draw, Drawn } from "@/lib/draw";
 import { SPREADS, SpreadKey } from "@/lib/spreads";
 import { CardFace, CardBack } from "./CardFace";
+import Image from "next/image";
+import Link from "next/link";
+import { narrative, relatedProducts } from "@/lib/narrative";
 
 export default function Reader({ initial, auto }: { initial: SpreadKey; auto: boolean }) {
   const [spread, setSpread] = useState<SpreadKey>(initial);
@@ -12,6 +15,9 @@ export default function Reader({ initial, auto }: { initial: SpreadKey; auto: bo
   useEffect(() => { if (auto) doDraw(initial); }, []); // eslint-disable-line
   useEffect(() => { if (shown < cards.length) { const t = setTimeout(() => setShown((s) => s + 1), 450); return () => clearTimeout(t); } }, [shown, cards]);
   const pos = SPREADS[spread].positions;
+  const done = cards.length > 0 && shown >= cards.length;
+  const story = done ? narrative(cards, pos) : null;
+  const recs = done ? relatedProducts(cards) : [];
   return (
     <div>
       <div className="flex flex-wrap gap-2 justify-center mb-6">
@@ -45,6 +51,21 @@ export default function Reader({ initial, auto }: { initial: SpreadKey; auto: bo
             </div>
           ))}
         </div>
+      )}
+      {story && (
+        <section className="fade-up mt-12 max-w-3xl mx-auto">
+          <h2 className="font-serif text-2xl text-candle mb-3 text-center">Your reading</h2>
+          <div className="space-y-2 text-silver leading-relaxed">{story.lines.map((l, i) => <p key={i}>{l}</p>)}</div>
+          <p className="mt-4 p-4 rounded-xl border border-candle/40 bg-plum/50 text-silver">{story.summary}</p>
+          <h3 className="font-serif text-xl text-candle mt-10 mb-4 text-center">Allies for this reading</h3>
+          <div className="grid grid-cols-3 gap-3">
+            {recs.map((p) => (
+              <Link key={p.id} href="/shop" className="rounded-xl overflow-hidden bg-plum/60 border border-silver/15 hover:border-candle transition">
+                <div className="relative aspect-square"><Image src={p.image} alt={p.name} fill sizes="200px" className="object-cover" /></div>
+                <p className="p-2 text-xs sm:text-sm font-serif">{p.name} <span className="text-candle">${p.price}</span></p>
+              </Link>))}
+          </div>
+        </section>
       )}
     </div>
   );
